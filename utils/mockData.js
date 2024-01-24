@@ -1,46 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () =>
-{
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src="https://t3.ftcdn.net/jpg/03/33/90/46/360_F_333904627_tnCepUpc3Uynb6stmEbverr8HeWS2VZl.jpg"></img>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About us</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
-
-                </ul>
-            </div>
-        </div>
-    );
-};
-
-const RestuarantCard = (props) => {
-    const {restData}=props;
-    return (
-        <div className="res-card" style={{backgroundColor:"#f0f0f0"}}>
-            <img className="res-logo"  src={
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-          restData.data.cloudinaryImageId
-        }></img>
-            <h3>{restData.data.name}</h3>
-            <h4>{restData.data.cuisines.join(", ")}</h4>
-            <h4>{restData.data.avgRating}</h4>
-            <h4>Rs{restData.data.costForTwo / 100} </h4>
-            <h4>{restData.data.deliveryTime} minutes</h4>
-
-
-
-        </div>
-    );
-};
-
 const resList=[
     {
       "type": "restaurant",
@@ -1806,29 +1763,4 @@ const resList=[
     }
   ];
 
-const Body = () => {
-    return (
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="res-container">
-            {
-                resList.map(restaurant => 
-                (<RestuarantCard restData={restaurant} />))
-            }
-
-            </div>
-        </div>
-    );
-};
-
-const Applayout = () => {
-    return(
-        <div className="app">
-            <Header />
-            <Body />
-        </div>
-    )
-}
-
-    const root= ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<Applayout/>);
+  export default resList;
